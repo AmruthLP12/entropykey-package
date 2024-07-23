@@ -1,0 +1,21 @@
+{
+  "name": "entropykey",
+  "version": "1.0.0",
+  "description": "A tool to generate unique tokens using the camera feed for randomness.",
+  "main": "src/script.js",
+  "scripts": {
+    "start": "serve src",
+    "build": "your-build-command"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amruthlp12/entropykey.git"
+  },
+  "keywords": ["entropy", "token", "camera", "randomness"],
+  "author": "Amruth L P",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.0.1"
+  },
+  "devDependencies": {}
+}
