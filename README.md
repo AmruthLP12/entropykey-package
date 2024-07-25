@@ -81,6 +81,29 @@ The script.js file handles the core functionality of generating the token using 
 ## Example
 
 After installing the package, create an index.html file in your project directory, and copy the provided HTML code into it. Ensure you have the necessary CSS and JS files referenced correctly.
+
+```javascript
+
+// src/script.js
+import generateTokenFromVideo from 'entropykey';
+
+document.getElementById('generateTokenBtn').addEventListener('click', async () => {
+    const tokenLength = 16; // Change this to your desired token length
+    const token = await generateTokenFromVideo(tokenLength);
+    document.getElementById('tokenOutput').value = token;
+    document.getElementById('tokenContainer').classList.remove('d-none');
+});
+
+document.getElementById('copyIcon').addEventListener('click', () => {
+    const tokenOutput = document.getElementById('tokenOutput');
+    tokenOutput.select();
+    document.execCommand('copy');
+    alert('Token copied to clipboard');
+});
+
+```
+
+
 ## Contribution
 
 If you would like to contribute to EntropyKey, please fork the repository and submit a pull request. We appreciate any contributions that can improve the functionality or usability of this tool.
@@ -98,4 +121,4 @@ You can find the repository for this project [here](https://github.com/AmruthLP1
 
 ## Contact
 
-For any questions or support, please open an issue in the repository or contact the author at amruthlp12@ghmail.com.
+For any questions or support, please open an issue in the repository or contact the author at amruthlp12@gmail.com.
