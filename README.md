@@ -84,7 +84,7 @@ After installing the package, create an index.html file in your project director
 
 ```javascript
 
-// src/script.js
+
 import generateTokenFromVideo from 'entropykey';
 
 document.getElementById('generateTokenBtn').addEventListener('click', async () => {
