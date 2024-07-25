@@ -1,6 +1,6 @@
 {
   "name": "entropykey",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool to generate unique tokens using the camera feed for randomness.",
   "main": "src/script.js",
   "scripts": {
