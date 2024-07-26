@@ -1,0 +1,46 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+#generateTokenBtn {
+    font-size: 16px;
+}
+
+#tokenContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    width: 100%;
+}
+
+#tokenOutput {
+    font-size: 16px;
+}
+
+#copyIcon {
+    cursor: pointer;
+}
+
+.description {
+    text-align: left;
+}
+
+.description h2 {
+    margin-bottom: 15px;
+}

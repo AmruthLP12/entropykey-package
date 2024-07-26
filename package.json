@@ -1,6 +1,6 @@
 {
   "name": "entropykey",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A tool to generate unique tokens using the camera feed for randomness.",
   "main": "src/script.js",
   "scripts": {
@@ -14,6 +14,9 @@
   "keywords": ["entropy", "token", "camera", "randomness"],
   "author": "Amruth L P",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "serve": "^14.0.1"
   },
