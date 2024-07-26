@@ -9,13 +9,27 @@ To install the EntropyKey package, use npm:
 npm install entropykey
 ```
 
+## Project Structure
+
+```txt
+your-project/
+├── index.html
+├── style.css
+├── script.js
+├── entropykey.js
+├── node_modules/
+├── package.json
+└── .gitignore
+```
+
+
 ## Usage
 
 To start using EntropyKey, you need to include the HTML, CSS, and JavaScript files in your project. Here is an example setup:
 
 
 ## HTML
-Create an index.html file and include the necessary references to the EntropyKey package files.
+Create an `index.html` file and include the necessary references to the EntropyKey package files.
 
 ```html
 <!DOCTYPE html>
@@ -26,7 +40,7 @@ Create an index.html file and include the necessary references to the EntropyKey
     <title>EntropyKey</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="node_modules/entropykey/src/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container mt-5">
@@ -55,19 +69,102 @@ Create an index.html file and include the necessary references to the EntropyKey
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="node_modules/entropykey/src/script.js"></script>
+    <script src="script.js" type="module"></script>
 </body>
 </html>
+
 
 ```
 
 
 ## CSS
 
-The style.css file included in the EntropyKey package will be referenced in the HTML file. You don't need to create or modify it separately as it's already provided in the npm package.
+Create a `style.css` file in your project directory and use the following content:
+
+```css
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+#generateTokenBtn {
+    font-size: 16px;
+}
+
+#tokenContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    width: 100%;
+}
+
+#tokenOutput {
+    font-size: 16px;
+}
+
+#copyIcon {
+    cursor: pointer;
+}
+
+.description {
+    text-align: left;
+}
+
+.description h2 {
+    margin-bottom: 15px;
+}
+
+```
 ## JavaScript
 
-The script.js file handles the core functionality of generating the token using the camera feed. Make sure this script is included in your HTML file as shown above.
+Create a `script.js` file in your project directory with the following content:
+
+```javascript
+import generateTokenFromVideo from './entropykey.js';
+
+document.getElementById('generateTokenBtn').addEventListener('click', async () => {
+    const tokenLength = 16; // Change this to your desired token length
+    const token = await generateTokenFromVideo(tokenLength);
+    document.getElementById('tokenOutput').value = token;
+    document.getElementById('tokenContainer').classList.remove('d-none');
+});
+
+document.getElementById('copyIcon').addEventListener('click', () => {
+    const tokenOutput = document.getElementById('tokenOutput');
+    tokenOutput.select();
+    document.execCommand('copy');
+    alert('Token copied to clipboard');
+});
+
+
+```
+
+## Additional File
+
+Create an `entropykey.js` file in the root of your project with the following content to serve as a bridge to import the module correctly:
+
+```javascript
+// entropykey.js
+export { default } from './node_modules/entropykey/script.js';
+
+```
+
+
 ## Explanation
 
 1. HTML Setup: The HTML file sets up the basic structure of the application, including the button to generate the token and a container to display the token.
@@ -85,7 +182,7 @@ After installing the package, create an index.html file in your project director
 ```javascript
 
 
-import generateTokenFromVideo from 'entropykey';
+import generateTokenFromVideo from './entropykey.js';
 
 document.getElementById('generateTokenBtn').addEventListener('click', async () => {
     const tokenLength = 16; // Change this to your desired token length
@@ -100,6 +197,7 @@ document.getElementById('copyIcon').addEventListener('click', () => {
     document.execCommand('copy');
     alert('Token copied to clipboard');
 });
+
 
 ```
 

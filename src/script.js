@@ -30,16 +30,19 @@ async function generateTokenFromVideo(length) {
     return token;
 }
 
-document.getElementById('generateTokenBtn').addEventListener('click', async () => {
-    const tokenLength = 16; // Change this to your desired token length
-    const token = await generateTokenFromVideo(tokenLength);
-    document.getElementById('tokenOutput').value = token;
-    document.getElementById('tokenContainer').classList.remove('d-none');
-});
+// document.getElementById('generateTokenBtn').addEventListener('click', async () => {
+//     const tokenLength = 16; // Change this to your desired token length
+//     const token = await generateTokenFromVideo(tokenLength);
+//     document.getElementById('tokenOutput').value = token;
+//     document.getElementById('tokenContainer').classList.remove('d-none');
+// });
 
-document.getElementById('copyIcon').addEventListener('click', () => {
-    const tokenOutput = document.getElementById('tokenOutput');
-    tokenOutput.select();
-    document.execCommand('copy');
-    alert('Token copied to clipboard');
-});
+// document.getElementById('copyIcon').addEventListener('click', () => {
+//     const tokenOutput = document.getElementById('tokenOutput');
+//     tokenOutput.select();
+//     document.execCommand('copy');
+//     alert('Token copied to clipboard');
+// });
+
+
+export default generateTokenFromVideo;
